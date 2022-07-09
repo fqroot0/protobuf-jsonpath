@@ -60,11 +60,11 @@ class PbParseContextImplTest {
         DocumentContext ctx = pbParseContext.parse(dynamicMessage);
 
         Object obj;
-        obj = ctx.read("$.people[1].name");
+        obj = ctx.read("$.people[1].name", String.class);
         assertEquals(obj, "foo1");
         log.info("{}", obj);
 
-        obj = ctx.read("$..number");
+        obj = ctx.read("$..number", List.class);
         assertEquals(obj, Arrays.asList("000-000-000", "000-000-001", "000-000-002"));
         log.info("{}", obj);
 
